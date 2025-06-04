@@ -1,14 +1,13 @@
 // src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PageTemplate from "./components/Layout/PageTemplate"
 
 import Home from "./pages/Home";
-/*import Contato from "./pages/Contato";
+import Contato from "../src/pages/Contato";
 import Franqueado from "./pages/Franqueado";
 import Loja from "./pages/Loja";
 import SobreNos from "./pages/SobreNos";
-import Tutorial from "./pages/Tutorial";*/
+import Tutorial from "./pages/Tutorial";
 
 const App: React.FC = () => {
   return (
@@ -20,46 +19,34 @@ const App: React.FC = () => {
               <Home />
           }
         />
-       {/* <Route
+       <Route
           path="/contato"
-          element={
-           <PageTemplate>
-              <Contato />
-            </PageTemplate>
-          }
+          element={<Contato />}
         />
-        {/*<Route
+        <Route
           path="/franqueado"
           element={
-            <PageTemplate>
               <Franqueado />
-            </PageTemplate>
-          }
-        />*/}
-       {/* <Route
-          path="/loja"
-          element={
-            <PageTemplate>
-              <Loja />
-            </PageTemplate>
           }
         />
-      {/*  <Route
+        <Route
+          path="/loja"
+          element={
+              <Loja />
+          }
+        />
+        <Route
           path="/sobre-nos"
           element={
-            <PageTemplate>
               <SobreNos />
-            </PageTemplate>
           }
-        />*/}
-        {/*<Route
+        />
+        <Route
           path="/tutorial"
           element={
-            <PageTemplate>
               <Tutorial />
-            </PageTemplate>
           }
-        />*/}
+        />
       </Routes>
     </Router>
   );

@@ -1,12 +1,13 @@
 import React from 'react';
-import './index.css';
+import PageTemplate from '../../components/Layout/PageTemplate';
+import './styles.css';
 
 const Contato: React.FC = () => {
     return (
-        <div>
-            Contato
-        </div>
-    );
+    <PageTemplate>
+      contato
+    </PageTemplate>
+  );
 };
 
 export default Contato;
