@@ -1,8 +1,11 @@
 import React from "react";
 import Layout from "antd/es/layout";
 import Menu from "antd/es/menu";
-import { Link } from "react-router-dom";
-import "./styles.css"
+import theme from "antd/es/theme";
+import { Link, useLocation } from "react-router-dom";
+import LogoP from "../../assets/LogoP.png";
+
+import "./styles.css";
 
 const { Header, Content, Footer } = Layout;
 
@@ -19,28 +22,60 @@ interface PageTemplateProps {
   children: React.ReactNode;
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => (
-  <Layout className="page-layout">
-    <Header className="page-header">
-      <div className="logo-placeholder">
-        {/* Aqui vai a logo */}
-        <span>Logo Café</span>
-      </div>
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={["home"]}
-        items={items}
-        className="page-menu"
-      />
-    </Header>
+const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 
-    <Content className="page-content">{children}</Content>
+  // Detecta a rota atual para selecionar o menu
+  const location = useLocation();
+  const currentPath = location.pathname.split("/")[1] || "home";
 
-    <Footer className="page-footer">
-      Café do Seu Jeito ©{new Date().getFullYear()}
-    </Footer>
-  </Layout>
-);
+  return (
+    <Layout className="page-layout">
+      <Header
+        className="page-header"
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div className="logo-placeholder">
+          <img id="logo" src={LogoP} alt="Logo" />
+          <h1 id="logo-text">A SUA CAFETERIA TEC</h1>
+        </div>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          selectedKeys={[currentPath]}
+          items={items}
+          className="page-menu"
+          style={{ flex: 1 }}
+        />
+      </Header>
+
+      <Content style={{ padding: "24px" }}>
+        <div
+          style={{
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+            padding: 24,
+            minHeight: 380,
+          }}
+        >
+          {children}
+        </div>
+      </Content>
+
+      <Footer className="page-footer" style={{ textAlign: "center" }}>
+        Café do Seu Jeito ©{new Date().getFullYear()}
+      </Footer>
+    </Layout>
+  );
+};
 
 export default PageTemplate;
