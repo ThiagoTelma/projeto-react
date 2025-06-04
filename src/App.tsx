@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PageTemplate from "./components/Layout/PageTemplate"
 
-function App() {
-  const [count, setCount] = useState(0)
+import Home from "./pages/Home";
+/*import Contato from "./pages/Contato";
+import Franqueado from "./pages/Franqueado";
+import Loja from "./pages/Loja";
+import SobreNos from "./pages/SobreNos";
+import Tutorial from "./pages/Tutorial";*/
 
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+              <Home />
+          }
+        />
+       {/* <Route
+          path="/contato"
+          element={
+           <PageTemplate>
+              <Contato />
+            </PageTemplate>
+          }
+        />
+        {/*<Route
+          path="/franqueado"
+          element={
+            <PageTemplate>
+              <Franqueado />
+            </PageTemplate>
+          }
+        />*/}
+       {/* <Route
+          path="/loja"
+          element={
+            <PageTemplate>
+              <Loja />
+            </PageTemplate>
+          }
+        />
+      {/*  <Route
+          path="/sobre-nos"
+          element={
+            <PageTemplate>
+              <SobreNos />
+            </PageTemplate>
+          }
+        />*/}
+        {/*<Route
+          path="/tutorial"
+          element={
+            <PageTemplate>
+              <Tutorial />
+            </PageTemplate>
+          }
+        />*/}
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
