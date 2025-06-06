@@ -91,8 +91,8 @@ return (
                                     <button onClick={() => increment(cafe.id)}>+</button>
                                 </div>
 
-                                <div className="cart-button">
-                                  <button className="download-button" aria-label="Download">
+                                <div className="cart-button-container">
+                                  <button className="cart-button" aria-label="Download">
                                     <ShoppingCart weight="fill" size={18} />
                                   </button>
                                 </div>

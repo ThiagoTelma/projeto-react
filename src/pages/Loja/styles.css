@@ -1,6 +1,7 @@
 /* Variáveis de tema exemplo (pode ajustar no seu root ou theme provider) */
 :root {
     --bege-100: #f8f4ef;
+    --bege-150: #f3e9dd;
     --bege-200: #f0e0ce;
     --lilas-100: #D2C0F3;
     --lilas-300: #704fad;
@@ -26,6 +27,7 @@
 .description-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
     gap: 7rem;
 }
@@ -38,11 +40,12 @@
     font-size: 3.2rem;
     font-weight: 800;
     line-height: 1.3;
+    color: var(--brown);
 }
 
 .descricao span {
     font-size: 1.4rem;
-    color: var(--gray-500);
+    color: var(--brown-cafe);
 }
 
 .descricao ul {
@@ -51,6 +54,7 @@
     gap: 1.5rem;
     margin-top: 2rem;
     list-style: none;
+    color: var(--brown);
 }
 
 .descricao li {
@@ -166,7 +170,7 @@
 }
 
 .descricao-coffee {
-    color: var(--gray-500);
+    color: var(--brown-cafe);
     text-align: center;
     margin-top: 0.5rem;
 }
@@ -197,7 +201,7 @@
 }
 
 .botao-quantidade {
-    background: var(--gray-150);
+    background: var(--bege-150);
     display: flex;
     align-items: center;
     border-radius: 6px;
@@ -207,7 +211,7 @@
 .botao-quantidade button {
     background: transparent;
     border: none;
-    color: var(--purple-dark-300);
+    color: var(--yellow-500);
     font-size: 1.5rem;
     cursor: pointer;
     margin: 0 4px;
@@ -215,12 +219,13 @@
 
 .botao-quantidade span {
     margin: 0 0.5rem;
-    color: var(--gray-600);
+    color: var(--yellow-500);
+    
 }
 
 
-.download-button {
-  background-color: var(--lilas-100);
+.cart-button {
+  background-color: var(--brown);
   border: none;
   border-radius: 12px;
   padding: 0.8rem;
@@ -234,24 +239,23 @@
   position: relative;
 }
 
-/* Hover (mouse por cima) */
-.download-button:hover {
-  background-color: var(--lilas-100);
+.cart-button:hover {
+  background-color: var(--brown-cafe);
 }
 
 /* Focus apenas se for via teclado */
-.download-button:focus {
-  box-shadow: 0 0 0 3px var(--lilas-100);
+.cart-button:focus {
+  box-shadow: 0 0 0 3px var(--brown-cafe);
 }
 
 /* Evita outline forçado ao clicar com mouse */
-.download-button:focus {
+.cart-button:focus {
   outline: none;
   box-shadow: none;
 }
 
 /* Clique */
-.download-button:active {
+.cart-button:active {
   transform: scale(0.95);
 }
 
