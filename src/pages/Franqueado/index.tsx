@@ -1,13 +1,13 @@
 import React from "react";
 import PageTemplate from "../../components/Layout/PageTemplate";
-import "./styles.css";
+import "../Franqueado/styles.css";
 import Form, { type FormProps } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import Input from "antd/es/input/Input";
-import Button from "antd/lib/Button";
 import { IdcardTwoTone, MailTwoTone, PhoneTwoTone } from "@ant-design/icons";
 import IconeInvestimento from "../../assets/Icons/icon-004.png";
 import IconeRetorno from "../../assets/Icons/icon-005.png";
+import { Button } from "antd";
 
 type FieldType = {
     nome?: string;
@@ -56,7 +56,6 @@ const Franqueado: React.FC = () => {
                         >
                             <FormItem<FieldType>
                                 name="nome"
-                                id="input"
                                 rules={[
                                     {
                                         required: true,
@@ -66,6 +65,7 @@ const Franqueado: React.FC = () => {
                             >
                                 <Input
                                     placeholder="Nome"
+                                    className="input"
                                     prefix={
                                         <IdcardTwoTone twoToneColor="#f3c300" />
                                     }
@@ -74,7 +74,6 @@ const Franqueado: React.FC = () => {
 
                             <FormItem<FieldType>
                                 name="email"
-                                id="input"
                                 rules={[
                                     {
                                         required: true,
@@ -85,6 +84,7 @@ const Franqueado: React.FC = () => {
                             >
                                 <Input
                                     placeholder="Email"
+                                    className="input"
                                     prefix={
                                         <MailTwoTone twoToneColor="#f3c300" />
                                     }
@@ -92,7 +92,6 @@ const Franqueado: React.FC = () => {
                             </FormItem>
                             <FormItem<FieldType>
                                 name="telefone"
-                                id="input"
                                 rules={[
                                     {
                                         required: true,
@@ -103,6 +102,7 @@ const Franqueado: React.FC = () => {
                             >
                                 <Input
                                     placeholder="Telefone"
+                                    className="input"
                                     prefix={
                                         <PhoneTwoTone twoToneColor="#f3c300" />
                                     }

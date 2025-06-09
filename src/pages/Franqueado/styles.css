@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 4rem;
     gap: 7rem;
     text-align: start;
 }
@@ -45,10 +45,14 @@
     background-color: var(--brown-cafe);
     padding: 20px;
     height: 100%;
-    width: 100%;
+    border-radius: 12px;
 }
 
-.input {
+.input:hover {
+    border-color: var(--amarelo-250);
+}
+
+.input:focus-within {
     border-color: var(--amarelo-250);
 }
 
@@ -77,6 +81,76 @@
 .profit-description {
     background-color: var(--gray-500);
     height: 100%;
+}
+
+.cards {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.card {
+    margin-top: 2rem;
+    border-radius: 0 25px;
+    background-color: var(--bege-100);
+    padding: 1rem;
+    width: 15rem;
+    min-height: 19rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--bege-200);
+}
+
+.card img {
+    margin-top: -0px;
+}
+
+.img-and-tag-local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tag-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.75rem;
+}
+
+.tag {
+    background-color: var(--bege-200);
+    color: var(--yellow-500);
+    font-weight: bold;
+    border-radius: 100px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+}
+
+.description-card-local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.title {
+    color: var(--brown);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 @media (max-width: 1024px) {
