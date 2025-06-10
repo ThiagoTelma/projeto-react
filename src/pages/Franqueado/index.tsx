@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useCallback } from "react";
 import PageTemplate from "../../components/Layout/PageTemplate";
 import "./franqueado.css";
-import Form, { type FormProps } from "antd/es/form/Form";
+import Form, {
+    useForm,
+    type FormInstance,
+    type FormProps,
+} from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import Input from "antd/es/input/Input";
 import { IdcardTwoTone, MailTwoTone, PhoneTwoTone } from "@ant-design/icons";
@@ -9,22 +13,61 @@ import IconeInvestimento from "../../assets/Icons/icon-004.png";
 import IconeRetorno from "../../assets/Icons/icon-005.png";
 import IconeFaturamento from "../../assets/Icons/icon-007.png";
 import { Button } from "antd";
+import { set, z } from "zod/v4";
+import type { FormRule } from "antd";
 
-type FieldType = {
-    nome?: string;
-    email?: string;
-    telefone?: number;
-};
+export const useValidation = <T = unknown,>(schema: z.ZodType<T>) =>
+    useCallback(
+        ({ getFieldsValue }: FormInstance) => ({
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            validator: async ({ field }) => {
+                const result = await schema.safeParseAsync(getFieldsValue());
+                const error =
+                    !result.success &&
+                    result.error.issues.filter((issue) =>
+                        issue.path.includes(field)
+                    )[0]?.message;
 
-const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+                return error ? Promise.reject(error) : Promise.resolve();
+            },
+        }),
+        [schema]
+    ) as FormRule;
+
+const phoneRegex = new RegExp(
+    /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
+const formSchema = z.object({
+    name: z
+        .string({
+            error: "Por favor, digite o seu nome.",
+        })
+        .nonempty({ error: "O campo nome deve ser preenchido." })
+        .min(2, {
+            error: "Por favor, digite o seu nome.",
+        }),
+    email: z
+        .string({ error: "Insira um e-mail válido." })
+        .nonempty({ error: "O campo e-mail deve ser preenchido." })
+        .email({ error: "Insira um e-mail válido." }),
+    telefone: z
+        .string({ error: "Insira um número de telefone válido." })
+        .regex(phoneRegex, "Insira um número de telefone válido."),
+});
+
+const onFinish = (values: any) => {
+    alert("Sucesso!");
     console.log("Success:", values);
 };
 
-const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
+const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
 };
 
 const Franqueado: React.FC = () => {
+    const formValidation = useValidation(formSchema);
+
     return (
         <PageTemplate>
             <div className="main-container">
@@ -50,20 +93,13 @@ const Franqueado: React.FC = () => {
                     </div>
                     <div className="formulario">
                         <Form
-                            onFinish={onFinish}
-                            onFinishFailed={onFinishFailed}
+                            name="basic"
                             autoComplete="off"
                             size="large"
+                            onFinish={onFinish}
+                            onFinishFailed={onFinishFailed}
                         >
-                            <FormItem<FieldType>
-                                name="nome"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Por favor, digite o seu nome",
-                                    },
-                                ]}
-                            >
+                            <FormItem name="name" rules={[formValidation]}>
                                 <Input
                                     placeholder="Nome"
                                     className="input"
@@ -73,16 +109,7 @@ const Franqueado: React.FC = () => {
                                 />
                             </FormItem>
 
-                            <FormItem<FieldType>
-                                name="email"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message:
-                                            "Por favor, digite o seu email",
-                                    },
-                                ]}
-                            >
+                            <FormItem name="email" rules={[formValidation]}>
                                 <Input
                                     placeholder="Email"
                                     className="input"
@@ -91,16 +118,7 @@ const Franqueado: React.FC = () => {
                                     }
                                 />
                             </FormItem>
-                            <FormItem<FieldType>
-                                name="telefone"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message:
-                                            "Por favor, digite o seu telefone",
-                                    },
-                                ]}
-                            >
+                            <FormItem name="telefone" rules={[formValidation]}>
                                 <Input
                                     placeholder="Telefone"
                                     className="input"
