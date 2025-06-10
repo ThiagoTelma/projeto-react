@@ -1,12 +1,13 @@
 import React from "react";
 import PageTemplate from "../../components/Layout/PageTemplate";
-import "../Franqueado/styles.css";
+import "./franqueado.css";
 import Form, { type FormProps } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import Input from "antd/es/input/Input";
 import { IdcardTwoTone, MailTwoTone, PhoneTwoTone } from "@ant-design/icons";
 import IconeInvestimento from "../../assets/Icons/icon-004.png";
 import IconeRetorno from "../../assets/Icons/icon-005.png";
+import IconeFaturamento from "../../assets/Icons/icon-007.png";
 import { Button } from "antd";
 
 type FieldType = {
@@ -126,21 +127,40 @@ const Franqueado: React.FC = () => {
                 </div>
                 <div className="profit-description">
                     <div className="cards">
-                        <div className="card">
+                        <div className="profit">
                             <div className="img-and-tag-local">
                                 <img src={IconeInvestimento} alt="Ícone" />
                                 <div className="tag-group">
-                                    <span className="tag">Investimento</span>
-                                    <span>Entre 20 e 100K</span>
+                                    <span className="titleProfit">
+                                        Investimento
+                                    </span>
+                                    <span className="textProfit">
+                                        Entre 20 e 100K
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="card">
+                        <div className="profit">
+                            <div className="img-and-tag-local">
+                                <img src={IconeFaturamento} alt="Ícone" />
+                                <div className="tag-group">
+                                    <span className="titleProfit">
+                                        Faturamento Médio
+                                    </span>
+                                    <span className="textProfit">
+                                        A partir de R$ 600.000,00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="profit">
                             <div className="img-and-tag-local">
                                 <img src={IconeRetorno} alt="Ícone" />
                                 <div className="tag-group">
-                                    <span className="tag">Retorno</span>
-                                    <span>Payback de 8 a 12 meses</span>
+                                    <span className="titleProfit">Retorno</span>
+                                    <span className="textProfit">
+                                        Payback de 8 a 12 meses
+                                    </span>
                                 </div>
                             </div>
                         </div>
