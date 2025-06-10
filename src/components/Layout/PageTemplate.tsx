@@ -3,7 +3,7 @@ import Layout from "antd/es/layout";
 import Menu from "antd/es/menu";
 import theme from "antd/es/theme";
 import { Link, useLocation } from "react-router-dom";
-import LogoP from "../../assets/LogoP.png";
+import capuccino from "../../assets/Cafes/Capuccino.svg";
 
 import "./styles.css";
 
@@ -45,7 +45,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
         }}
       >
         <div className="logo-placeholder">
-          <img id="logo" src={LogoP} alt="Logo" />
+          <img id="logo" src={capuccino} alt="Logo" />
           <h1 id="logo-text">A SUA CAFETERIA TEC</h1>
         </div>
         <Menu
