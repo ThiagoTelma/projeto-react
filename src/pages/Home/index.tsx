@@ -40,7 +40,7 @@ const Home: React.FC = () => {
         </div>
 
         <section className="featured-coffees">
-          <h2>Cafés em Destaque</h2>
+          <h2 id="cafe_em_destaque">Cafés em Destaque</h2>
           <div className="coffee-cards">
             {featuredCoffees.map((coffee) => (
               <Card
@@ -91,44 +91,54 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="delivery-info">
-          <div className="delivery-content delivery-bg-img">
-            <div>
-              <h2>Entrega Rápida e Segura</h2>
-              <p>
-                Receba seus cafés favoritos no conforto da sua casa. Trabalhamos com parceiros de entrega confiáveis para garantir que seu pedido chegue fresco e no prazo.
-              </p>
-              <a href="/entrega" className="cta-link">
-                Saiba mais sobre a entrega
-              </a>
+        <div className="sections-tips-delivery">
+          <section className="coffee-tips">
+            <h2>Dicas para Preparar um Bom Café</h2>
+            <ol>
+              <li>Escolha grãos frescos e de qualidade.</li>
+              <li>Moagem na hora faz toda a diferença.</li>
+              <li>Use água filtrada e na temperatura ideal (cerca de 92°C a 96°C).</li>
+              <li>Experimente diferentes métodos de preparo: coado, prensa francesa, espresso, entre outros.</li>
+            </ol>
+          </section>
+
+          <section className="delivery-info">
+            <div className="delivery-content delivery-bg-img">
+              <div>
+                <h2>Entrega Rápida e Segura</h2>
+                <p>
+                  Receba seus cafés favoritos no conforto da sua casa. Trabalhamos com parceiros de entrega confiáveis para garantir que seu pedido chegue fresco e no prazo.
+                </p>
+                <a href="/entrega" className="cta-link">
+                  Saiba mais sobre a entrega
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
-        
-        <section className="coffee-tips">
-          <h2>Dicas para Preparar um Bom Café</h2>
-          <ol>
-            <li>Escolha grãos frescos e de qualidade.</li>
-            <li>Moagem na hora faz toda a diferença.</li>
-            <li>Use água filtrada e na temperatura ideal (cerca de 92°C a 96°C).</li>
-            <li>Experimente diferentes métodos de preparo: coado, prensa francesa, espresso, entre outros.</li>
-          </ol>
-        </section>
+          </section>
+        </div>
 
         <section className="menu-calls">
-          <h2>Explore Mais</h2>
+          <div className="menu-calls-intro">
+            <h2>Menu</h2>
+            <p>
+              Explore todas as áreas do nosso site e descubra tudo sobre cafés, franquias, dicas e muito mais. Escolha uma opção abaixo:
+            </p>
+          </div>
           <ul>
             <li>
-              <a href="/origens">Conheça as Origens dos Cafés</a>
+              <a href="/loja">Loja</a>
             </li>
             <li>
-              <a href="/metodos">Métodos de Preparo</a>
+              <a href="/sobre-nos">Sobre Nós</a>
             </li>
             <li>
-              <a href="/dicas">Dicas e Curiosidades</a>
+              <a href="/tutorial">Faça Você Mesmo</a>
             </li>
             <li>
-              <a href="/contato">Fale Conosco</a>
+              <a href="/franqueado">Franquia</a>
+            </li>
+            <li>
+              <a href="/contato">Contato</a>
             </li>
           </ul>
         </section>
