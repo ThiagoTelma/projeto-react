@@ -18,17 +18,24 @@ export const newCycleFormValidationSchema = zod.object({
 
 //  Tipo inferido do schema
 export type cycleFormData = zod.infer<typeof newCycleFormValidationSchema>;
+export type PagamentoOpcao = "Credito" | "Debito" | "Dinheiro" | "Pix";
 
 //  Tipos auxiliares
 export type Cafe = {
   id: number;
   nome: string;
-  imagem: string;
+  descricao: string; 
   preco: number;
-};
+  imagem: string;
+  tags: string[];    
+}
 
 export type ItemCarrinho = Cafe & {
   quantidade: number;
 };
 
-export type PagamentoOpcao = "Credito" | "Debito" | "Dinheiro" | "Pix";
+export type ItemStorage = {
+  cafe: Cafe;
+  quantidade: number;
+};
+

@@ -10,15 +10,18 @@ import { useEffect, useState, useRef } from "react";
 import {
   type cycleFormData,
   newCycleFormValidationSchema,
-  type ItemCarrinho
+  type ItemCarrinho,
+  type ItemStorage
 } from "../types";
+
 
 function carrinhoFromLocalStorage(): ItemCarrinho[] {
   try {
     const data = localStorage.getItem("carrinho");
     if (!data) return [];
-    const parsed = JSON.parse(data);
-    return parsed.map((item: any) => ({
+
+    const parsed: ItemStorage[] = JSON.parse(data);
+    return parsed.map((item) => ({
       ...item.cafe,
       quantidade: item.quantidade,
     }));
@@ -26,6 +29,7 @@ function carrinhoFromLocalStorage(): ItemCarrinho[] {
     return [];
   }
 }
+
 
 function carrinhosDiferem(a: ItemCarrinho[], b: ItemCarrinho[]): boolean {
   if (a.length !== b.length) return true;
@@ -109,12 +113,17 @@ const Checkout: React.FC = () => {
   }
 
   function diminuirQuantidade(id: number) {
-    setCarrinho(prev => prev.map(item =>
-      item.id === item.id && item.quantidade > 1
-        ? { ...item, quantidade: item.quantidade - 1 }
-        : item
-    ).filter(item => item.quantidade > 0));
-  }
+  setCarrinho(prev =>
+    prev
+      .map(item =>
+        item.id === id && item.quantidade > 1
+          ? { ...item, quantidade: item.quantidade - 1 }
+          : item
+      )
+      .filter(item => item.quantidade > 0)
+  );
+}
+
 
   function removerItem(id: number) {
     setCarrinho(prev => prev.filter(item => item.id !== id));
