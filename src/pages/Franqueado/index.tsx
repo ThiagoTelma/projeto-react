@@ -1,6 +1,6 @@
 import React from 'react';
 import PageTemplate from '../../components/Layout/PageTemplate';
-import './franqueado.css';
+import './styles.css';
 
 const Franqueado: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PageTemplate from '../../components/Layout/PageTemplate';
-import './tutorial.css';
+import './styles.css';
 
 const Tutorial: React.FC = () => {
     return (
