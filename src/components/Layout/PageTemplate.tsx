@@ -3,7 +3,7 @@ import Layout from "antd/es/layout";
 import Menu from "antd/es/menu";
 import theme from "antd/es/theme";
 import { Link, useLocation } from "react-router-dom";
-import LogoP from "../../assets/LogoP.png";
+import capuccino from "../../assets/Cafes/Capuccino.svg";
 
 import "./styles.css";
 import { ShoppingCart } from "phosphor-react";
@@ -13,7 +13,7 @@ const { Header, Content, Footer } = Layout;
 const items = [
   { key: "home", label: <Link to="/">Home</Link> },
   { key: "loja", label: <Link to="/loja">Loja</Link> },
-  { key: "sobre", label: <Link to="/sobre-nos">Sobre Nós</Link> },
+  { key: "sobre-nos", label: <Link to="/sobre-nos">Sobre Nós</Link> },
   { key: "tutorial", label: <Link to="/tutorial">Faça Você Mesmo</Link> },
   { key: "franqueado", label: <Link to="/franqueado">Franquia</Link> },
   { key: "contato", label: <Link to="/contato">Contato</Link> },
@@ -48,7 +48,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
         }}
       >
         <div className="logo-placeholder">
-          <img id="logo" src={LogoP} alt="Logo" />
+          <img id="logo" src={capuccino} alt="Logo" />
           <h1 id="logo-text">A SUA CAFETERIA TEC</h1>
         </div>
         <Menu
