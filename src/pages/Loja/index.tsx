@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PageTemplate from '../../components/Layout/PageTemplate';
 import './styles.css';
-import CoffeeLogo from "../../../../assets/CoffeeImg.svg";
+import CoffeeLogo from "../../assets/CoffeeImg.svg";
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
 import { cafes } from "../../components/CardCafes/CatalogCoffee";
 
