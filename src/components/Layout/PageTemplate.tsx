@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import LogoP from "../../assets/LogoP.png";
 
 import "./styles.css";
+import { ShoppingCart } from "phosphor-react";
 
 const { Header, Content, Footer } = Layout;
 
@@ -16,6 +17,8 @@ const items = [
   { key: "tutorial", label: <Link to="/tutorial">Faça Você Mesmo</Link> },
   { key: "franqueado", label: <Link to="/franqueado">Franquia</Link> },
   { key: "contato", label: <Link to="/contato">Contato</Link> },
+  { key: "carrinho", label: <Link className="SvgCart" to="/checkout"><ShoppingCart/></Link>
+   },
 ];
 
 interface PageTemplateProps {
