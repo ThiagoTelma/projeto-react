@@ -98,6 +98,10 @@
   background-color: var(--bege-200);
 }
 
+textarea::placeholder {
+  color: var(--brown-cafe)
+}
+
 .ContatoForm label {
   display: block;
   font-weight: bold;

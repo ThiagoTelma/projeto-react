@@ -125,7 +125,7 @@ const Contato: React.FC = () => {
                 </form>
               </>
             ) : (
-              <div className='Message-Container'>
+              <div className='Message'>
                 <h1>Mensagem enviada com sucesso!!</h1>
                 <p>Obrigado por entrar em contato. Retornaremos em breve.</p>
               </div>
