@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Edu+QLD+Hand:wght@400..700&display=swap');
 
-
+.SvgCart svg{
+  margin-top: 20px;
+  width: 20px;
+  height: auto;
+}
 .page-layout {
   min-height: 100vh;
   background-color: #f8f4ef;
