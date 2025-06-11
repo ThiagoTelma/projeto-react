@@ -43,6 +43,18 @@
   border-bottom: none;
 }
 
+/* Estado selecionado do menu - força sobre Ant Design */
+.page-menu .ant-menu-item-selected,
+.page-menu .active,
+.page-menu a.active,
+.page-menu .selected,
+.page-menu a.selected {
+  background: #F3C300 !important;
+  color: #222 !important;
+  border-radius: 0.5em !important;
+  transition: background 0.2s, color 0.2s;
+}
+
 .page-content {
   flex: 1;
   padding: 24px;
@@ -69,7 +81,11 @@
   }
 
   #logo-text {
-    font-size: 16px;
+    font-size: 16px !important;
+    display: block !important;
+    color: #f3e9dc !important;
+    margin: 0 !important;
+    font-family: 'Edu QLD Hand', cursive !important;
   }
 
   .page-menu {
