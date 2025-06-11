@@ -77,9 +77,6 @@
   background-color: var(--bege-200);
 }
 
-
-
-
 #mensagem{
   width: 100%;            
   min-height: 120px;      
@@ -89,7 +86,6 @@
   border: 1px solid var(--bege-250);
   background-color: var(--bege-150);
   font-size: 1rem;
-  font-family: inherit;
   box-sizing: border-box;
 
   resize: vertical;      
@@ -114,4 +110,6 @@
   margin-bottom: 20px;
 }
 
-
+.Message-Container{
+  text-align: center;
+}
