@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contato from "../src/pages/Contato";
 import Franqueado from "./pages/Franqueado";
-import Loja from "./pages/Loja";
+import Loja from "./pages/Loja/Store";
 import SobreNos from "./pages/SobreNos";
 import Tutorial from "./pages/Tutorial";
+import Checkout from "./pages/Loja/Checkout/index";
 
 const App: React.FC = () => {
   return (
@@ -35,6 +36,12 @@ const App: React.FC = () => {
               <Loja />
           }
         />
+        <Route 
+          path="/CheckOut" 
+          element={ 
+              <Checkout />
+          }
+          />
         <Route
           path="/sobre-nos"
           element={
