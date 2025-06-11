@@ -4,6 +4,7 @@ import './styles.css';
 import CoffeeLogo from "../../../assets/CoffeeLogo.svg";
 import { Coffee, Package, ShoppingCart, Timer} from 'phosphor-react';
 import { cafes } from '../../../components/CardCafes/CatalogCoffee';
+import { useNavigate } from "react-router-dom";
 
  interface Cafe {
   id: number;
@@ -22,16 +23,9 @@ interface ItemCarrinho {
 const Loja: React.FC = () => {
     
      // Inicializa quantidades com dados do localStorage para manter estado sincronizado
-  const [quantidades, setQuantidades] = useState<{ [id: number]: number }>(() => {
-    const carrinhoAtual: ItemCarrinho[] = JSON.parse(localStorage.getItem("carrinho") || "[]");
-    const quantMap: { [id: number]: number } = {};
-    carrinhoAtual.forEach((item: ItemCarrinho) => {
-        quantMap[item.cafe.id] = item.quantidade;
-    });
-    return quantMap;
-  });
+  const [quantidades, setQuantidades] = useState<{ [id: number]: number }>({});
 
-
+  const navigate = useNavigate();
 
   function increment(id: number) {
     setQuantidades((state) => ({
@@ -48,22 +42,25 @@ const Loja: React.FC = () => {
   }
 
   function handleAdicionar(cafe: Cafe) {
-  const quantidade = quantidades[cafe.id] ?? 0;
-  if (quantidade <= 0) return;
+    const quantidade = quantidades[cafe.id] ?? 0;
+    if (quantidade <= 0) return;
 
-  const carrinhoAtual: ItemCarrinho[] = JSON.parse(localStorage.getItem("carrinho") || "[]");
+    const carrinhoAtual: ItemCarrinho[] = JSON.parse(localStorage.getItem("carrinho") || "[]");
 
-  const index = carrinhoAtual.findIndex((item: ItemCarrinho) => item.cafe.id === cafe.id);
+    const index = carrinhoAtual.findIndex((item: ItemCarrinho) => item.cafe.id === cafe.id);
 
-  if (index >= 0) {
-    carrinhoAtual[index].quantidade += quantidade;
-  } else {
-    carrinhoAtual.push({ cafe, quantidade });
+    if (index >= 0) {
+      carrinhoAtual[index].quantidade = quantidade;
+    } else {
+      carrinhoAtual.push({ cafe, quantidade });
+    }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinhoAtual));
+    setQuantidades((state) => ({ ...state, [cafe.id]: 0 }));
+
+    // Redireciona para o checkout
+    navigate("/CheckOut");
   }
-
-  localStorage.setItem("carrinho", JSON.stringify(carrinhoAtual));
-  setQuantidades((state) => ({ ...state, [cafe.id]: 0 }));
-}
 
 return (
     <PageTemplate>

@@ -45,6 +45,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
           width: "100%",
           display: "flex",
           alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
         <div className="logo-placeholder">

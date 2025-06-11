@@ -20,30 +20,23 @@ const Tutorial: React.FC = () => {
         </p>
         <br />
         <section>
-          <h2> Comprar café aqui é fácil!</h2>
-          <ul>
-            <br />
+          <h2 className="tutorial-title">Comprar café aqui é fácil!</h2>
+          <ol className="tutorial-steps">
             <li>
-              1️⃣ Acesse a aba <strong>Loja</strong> e escolha entre cafés, doces
-              e acompanhamentos.
+              Acesse a aba <strong>Loja</strong> e escolha entre nossos melhores cafés!
             </li>
-            <br />
             <li>
-              2️⃣ Clique em <strong>Adicionar</strong> para colocar itens no seu
-              carrinho.
+              Escolha a quantidade e clique no <strong>Ícone</strong> para colocar itens no seu carrinho.
             </li>
-            <br />
             <li>
-              3️⃣ Vá para o <strong>Carrinho</strong>, revise os produtos e
+              Vá para o <strong>Carrinho</strong>, revise os produtos e
               finalize seu pedido com um clique.
             </li>
-            <br />
-
             <li>
-              4️⃣ Pronto! Seu pedido estará a caminho e pode ser acompanhado na
-              aba <strong>Meus Pedidos</strong>.
+              Pronto! Seu pedido estará a caminho e pode ser acompanhado na aba
+              <strong> Meus Pedidos</strong>.
             </li>
-          </ul>
+          </ol>
         </section>
         <br />
         <section>

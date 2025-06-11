@@ -59,13 +59,6 @@
   transition: background 0.2s, color 0.2s;
 }
 
-.page-content {
-  flex: 1;
-  padding: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
 
 .page-footer {
   text-align: center;
