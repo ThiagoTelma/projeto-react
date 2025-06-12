@@ -1,18 +1,18 @@
 import React from "react";
-import PageTemplate from "../../../components/Layout/PageTemplate";
+import PageTemplate from "../../components/Layout/PageTemplate";
 import "./styles.css"
 
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckoutForm } from "../components/CheckoutForm/index";
-import { CheckoutConfirm } from "../components/CheckoutConfim/index";
+import { CheckoutForm } from "../../components/CheckoutForm/index";
+import { CheckoutConfirm } from "../../components/CheckoutConfim/index";
 import { useEffect, useState, useRef } from "react";
 import {
   type cycleFormData,
   newCycleFormValidationSchema,
   type ItemCarrinho,
   type ItemStorage
-} from "../types";
+} from "../../types/types";
 
 
 function carrinhoFromLocalStorage(): ItemCarrinho[] {

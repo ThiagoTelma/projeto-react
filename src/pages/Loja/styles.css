@@ -3,8 +3,6 @@
     --bege-100: #f8f4ef;
     --bege-150: #f3e9dd;
     --bege-200: #f0e0ce;
-    --lilas-100: #d2c0f3;
-    --lilas-300: #704fad;
     --amarelo-250: #f3c300;
     --yellow-100: #f1e9c9;
     --yellow-300: #dbac2c;
@@ -53,6 +51,7 @@
     margin-top: 2rem;
     list-style: none;
     color: var(--brown);
+    padding: 0px;
 }
 
 .descricao li {
