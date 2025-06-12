@@ -15,7 +15,7 @@
 }
 
 /* Reset e base */
-body {
+.home-main body {
   background: var(--bege-claro);
   font-family: 'Roboto', Arial, sans-serif;
   color: var(--marrom-cafe);
@@ -25,23 +25,27 @@ body {
   line-height: 1.6;
 }
 
-a {
+.home-main a {
   color: inherit;
   text-decoration: none;
   transition: color 0.2s;
 }
-a:hover { color: var(--amarelo-mostarda); }
+.home-main a:hover { color: var(--amarelo-mostarda); }
 
-h1, h2, h3 {
+.home-main h1, 
+.home-main h2, 
+.home-main h3 {
   margin: 0 0 0.5em 0;
   font-weight: 700;
   text-align: center;
 }
-h1 { font-family: 'Audiowide', cursive; font-size: 3em; color: #000; text-shadow: 2px 2px 8px #fff; }
-h2 { font-family: 'Share Tech Mono', monospace; font-size: 2em; color: var(--marrom-escuro);}
-h3 { font-size: 1.3em; }
+.home-main h1 { font-family: 'Audiowide', cursive; font-size: 3em; color: #000; text-shadow: 2px 2px 8px #fff; }
+.home-main h2 { font-family: 'Share Tech Mono', monospace; font-size: 2em; color: var(--marrom-escuro);}
+.home-main h3 { font-size: 1.3em; }
 
-p, ul, li {
+.home-main p, 
+.home-main ul, 
+.home-main li {
   font-family: 'Share Tech Mono', monospace;
   font-size: 1.1em;
   text-align: center;
@@ -49,7 +53,7 @@ p, ul, li {
   max-width: 700px;
 }
 
-main {
+.home-main main {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
