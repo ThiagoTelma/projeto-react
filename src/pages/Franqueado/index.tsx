@@ -1,11 +1,7 @@
 import React, { useCallback } from "react";
 import PageTemplate from "../../components/Layout/PageTemplate";
 import "./franqueado.css";
-import Form, {
-    useForm,
-    type FormInstance,
-    type FormProps,
-} from "antd/es/form/Form";
+import Form, { type FormInstance } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import Input from "antd/es/input/Input";
 import { IdcardTwoTone, MailTwoTone, PhoneTwoTone } from "@ant-design/icons";
@@ -13,8 +9,10 @@ import IconeInvestimento from "../../assets/Icons/icon-004.png";
 import IconeRetorno from "../../assets/Icons/icon-005.png";
 import IconeFaturamento from "../../assets/Icons/icon-007.png";
 import { Button } from "antd";
-import { set, z } from "zod/v4";
+import { z } from "zod/v4";
 import type { FormRule } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Form as AntForm } from "antd";
 
 export const useValidation = <T = unknown,>(schema: z.ZodType<T>) =>
     useCallback(
@@ -35,9 +33,6 @@ export const useValidation = <T = unknown,>(schema: z.ZodType<T>) =>
         [schema]
     ) as FormRule;
 
-const phoneRegex = new RegExp(
-    /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
-);
 const formSchema = z.object({
     name: z
         .string({
@@ -52,21 +47,30 @@ const formSchema = z.object({
         .nonempty({ error: "O campo e-mail deve ser preenchido." })
         .email({ error: "Insira um e-mail válido." }),
     telefone: z
-        .string({ error: "Insira um número de telefone válido." })
-        .regex(phoneRegex, "Insira um número de telefone válido."),
+        .string({ error: "Insira um número de telefone." })
+        .nonempty("Informe o telefone")
+        .refine((val) => !isNaN(Number(val)), {
+            message: "Número inválido",
+        })
+        .refine((val) => val.length === 11, {
+            message: "O telefone deve conter 11 dígitos",
+        }),
 });
-
-const onFinish = (values: any) => {
-    alert("Sucesso!");
-    console.log("Success:", values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-};
 
 const Franqueado: React.FC = () => {
     const formValidation = useValidation(formSchema);
+    const [form] = AntForm.useForm(); // form instance
+    const navigate = useNavigate(); // hook de navegação
+
+    const onFinish = (values: any) => {
+        console.log("Success:", values);
+        form.resetFields(); // limpa os campos
+        navigate("/mensagem");
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+        console.log("Failed:", errorInfo);
+    };
 
     return (
         <PageTemplate>
@@ -93,6 +97,7 @@ const Franqueado: React.FC = () => {
                     </div>
                     <div className="formulario">
                         <Form
+                            form={form}
                             name="basic"
                             autoComplete="off"
                             size="large"
