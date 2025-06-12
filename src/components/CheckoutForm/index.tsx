@@ -8,7 +8,7 @@ import {
   CurrencyDollar,
   MapPin,
 } from "phosphor-react";
-import type { cycleFormData, PagamentoOpcao, ItemCarrinho } from "../../types";
+import type { cycleFormData, PagamentoOpcao, ItemCarrinho } from "../../types/types";
 import { useFormContext } from "react-hook-form";
 import "./styles.css";
 

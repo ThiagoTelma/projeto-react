@@ -1,27 +1,62 @@
 import React, {useState} from 'react';
 import PageTemplate from '../../components/Layout/PageTemplate';
 import './styles.css';
-import CoffeeLogo from "../../assets/CoffeeImg.svg";
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
-import { cafes } from "../../components/CardCafes/CatalogCoffee";
+import CoffeeLogo from "../../assets/CoffeeLogo.svg";
+import { Coffee, Package, ShoppingCart, Timer} from 'phosphor-react';
+import { cafes } from '../../components/CardCafes/CatalogCoffee';
+
+
+ interface Cafe {
+  id: number;
+  nome: string;
+  descricao: string;
+  preco: number;
+  imagem: string;
+  tags: string[];
+}
+
+interface ItemCarrinho {
+  cafe: Cafe;
+  quantidade: number;
+}
 
 const Loja: React.FC = () => {
     
-       const [quantidades, setQuantidades] = useState<{ [id: number]: number }>({});
+     // Inicializa quantidades com dados do localStorage para manter estado sincronizado
+  const [quantidades, setQuantidades] = useState<{ [id: number]: number }>({});
 
-        function increment(id: number) {
-        setQuantidades((state) => ({
-            ...state,
-            [id]: (state[id] ?? 0) + 1,
-        }));
+  function increment(id: number) {
+    setQuantidades((state) => ({
+      ...state,
+      [id]: (state[id] ?? 0) + 1,
+    }));
+  }
+
+  function decrement(id: number) {
+    setQuantidades((state) => ({
+      ...state,
+      [id]: state[id] > 0 ? state[id] - 1 : 0,
+    }));
+  }
+
+  function handleAdicionar(cafe: Cafe) {
+    const quantidade = quantidades[cafe.id] ?? 0;
+    if (quantidade <= 0) return;
+
+    const carrinhoAtual: ItemCarrinho[] = JSON.parse(localStorage.getItem("carrinho") || "[]");
+
+    const index = carrinhoAtual.findIndex((item: ItemCarrinho) => item.cafe.id === cafe.id);
+
+    if (index >= 0) {
+      carrinhoAtual[index].quantidade = quantidade;
+    } else {
+      carrinhoAtual.push({ cafe, quantidade });
     }
 
-    function decrement(id: number) {
-        setQuantidades((state) => ({
-            ...state,
-            [id]: state[id] > 0 ? state[id] - 1 : 0,
-        }));
-    }
+    localStorage.setItem("carrinho", JSON.stringify(carrinhoAtual));
+    setQuantidades((state) => ({ ...state, [cafe.id]: 0 }));
+  }
+
 return (
     <PageTemplate>
         <div className="main-container">
@@ -92,7 +127,7 @@ return (
                                 </div>
 
                                 <div className="cart-button-container">
-                                  <button className="cart-button" aria-label="Download">
+                                  <button className="cart-button" onClick={() => handleAdicionar(cafe)} aria-label={`Adicionar ${cafe.nome} ao carrinho`}>
                                     <ShoppingCart weight="fill" size={18} />
                                   </button>
                                 </div>

@@ -1,9 +1,8 @@
 import React from "react";
 import "./styles.css"
-
 import { MapPin, Money, Timer } from "phosphor-react";
-import Ilustracao from "../../../../assets/IlustraçãoViagem.svg";
-import type { cycleFormData } from "../../types";
+import Ilustracao from "../../assets/IlustraçãoViagem.svg";
+import type { cycleFormData } from "../../types/types";
 import "./styles.css"; 
 
 interface PedidoConfirmadoProps {

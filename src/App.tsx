@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contato from "../src/pages/Contato";
 import Franqueado from "./pages/Franqueado";
-import Loja from "./pages/Loja/Store";
+import Loja from "./pages/Loja";
 import SobreNos from "./pages/SobreNos";
 import Tutorial from "./pages/Tutorial";
-import Checkout from "./pages/Loja/Checkout/index";
+import Checkout from "./pages/Checkout/index";
 import Mensagem from "./pages/Mensagem/mensagem";
 
 const App: React.FC = () => {
