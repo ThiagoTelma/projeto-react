@@ -1,4 +1,4 @@
-# Projeto React
+# ☕ Cafeteria Tech
 
 Este é um projeto desenvolvido em React utilizando Vite como bundler, o Ant Design como biblioteca de componentes UI, e suporte para TypeScript.
 
