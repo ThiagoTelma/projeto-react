@@ -16,8 +16,8 @@ Este é um projeto desenvolvido em React utilizando Vite como bundler, o Ant Des
 1. **Clone o repositório:**
 
 ```bash
-git clone https://github.com/seu-usuario/projeto-react.git
-cd projeto-react
+git clone https://github.com/ThiagoTelma/cafeteria-tech.git
+cd cafeteria-tech
 - Instale as dependências:
 npm install
 
@@ -28,7 +28,7 @@ O projeto será iniciado em http://localhost:5173/ (ou porta configurada no Vite
 
 📁 Estrutura de Pastas
 pgsql
-projeto-react/
+cafeteria-tech/
 ├── public/
 ├── src/
 │   ├── components/
