@@ -18,24 +18,16 @@ Este é um projeto desenvolvido em React utilizando Vite como bundler, o Ant Des
 ```bash
 git clone https://github.com/seu-usuario/projeto-react.git
 cd projeto-react
-Instale as dependências:
-
-bash
-Copiar
-Editar
+- Instale as dependências:
 npm install
-Inicie o projeto:
 
-bash
-Copiar
-Editar
+- Inicie o projeto:
 npm run dev
+
 O projeto será iniciado em http://localhost:5173/ (ou porta configurada no Vite).
 
 📁 Estrutura de Pastas
 pgsql
-Copiar
-Editar
 projeto-react/
 ├── public/
 ├── src/
